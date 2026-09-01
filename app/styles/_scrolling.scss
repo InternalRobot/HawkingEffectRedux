@@ -1,0 +1,25 @@
+#white-scrolling-page {
+    position: relative;
+    min-height: 96%;
+    height: auto;
+    width: 100%;
+    padding-top: 1px;
+    opacity: 1;
+    transition: opacity 0.5s;
+    .container {
+        width: 100%;
+        position: relative;
+    }
+    .movie-logo {
+        color: #000000;
+        @media (max-width:$max) {
+            display: none;
+        }
+    }
+    .pg13 {
+        bottom: -2%;
+    }
+    .white-buy-tickets {
+        z-index: 2;
+    }
+}

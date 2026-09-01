@@ -1,0 +1,45 @@
+<div id="menu-right">
+	<div class="filters">
+		<a class="filter-all filter active" data-category="all">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"preserveAspectRatio="xMidYMid" width="56" height="61" class="all-hex">
+			  <defs>
+			    <style>
+			      .allhex {
+			        fill: #ffffff;
+			        stroke: #ffffff;
+			        stroke-linejoin: round;
+			        stroke-width: 2px;
+			      }
+			    </style>
+			  </defs>
+			  <path class="allhex" d="M24.088,58.910 C24.088,58.910 4.995,48.018 4.995,48.018 C2.552,46.625 1.046,44.059 1.040,41.281 C1.040,41.281 0.997,19.573 0.997,19.573 C0.991,16.779 2.505,14.195 4.965,12.798 C4.965,12.798 23.960,2.012 23.960,2.012 C26.420,0.614 29.452,0.617 31.910,2.019 C31.910,2.019 51.003,12.911 51.003,12.911 C53.446,14.304 54.952,16.870 54.958,19.648 C54.958,19.648 55.001,41.356 55.001,41.356 C55.007,44.150 53.493,46.734 51.033,48.132 C51.033,48.132 32.038,58.918 32.038,58.918 C29.578,60.315 26.546,60.312 24.088,58.910 Z" id="allhex" fill-rule="evenodd"/>
+			</svg>
+			<div class="text">ALL</div>
+		</a>
+		<% _.forEach(categories, function(category) { %>
+		<a href="#" class="filter" data-category="<%= category.get('slug') %>">
+			<div class="text"><%= category.get('connection').toUpperCase() %></div>
+		</a>
+		<% }); %>
+	</div>
+	<div class="share-container">
+		<a class='share icon-facebook'
+		    data-slug="stephen_hawking" 
+		    data-shareable='true' 
+		    data-platform='facebook' 
+		    data-href='https://hawking-effect-og.herokuapp.com/share/stephen_hawking'>
+    	</a>
+    	<a class='share icon-twitter'
+    		data-slug="stephen_hawking" 
+		    data-shareable='true' 
+		    data-platform='twitter' 
+		    data-href='https://hawking-effect-og.herokuapp.com/share/stephen_hawking'>
+    	</a>
+    	<a class='share icon-pinterest'
+    		data-slug="stephen_hawking" 
+		    data-shareable='true' 
+		    data-platform='pinterest' 
+		    data-href='https://hawking-effect-og.herokuapp.com/share/stephen_hawking'>
+    	</a>
+	</div>
+</div>

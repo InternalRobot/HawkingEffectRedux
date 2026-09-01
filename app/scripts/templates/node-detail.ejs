@@ -1,0 +1,103 @@
+<div class="detail-close">
+	<svg width="20" height="20" viewBox="-10,-10,20,20">
+		<path class="cross" d="M-1,1L-1,11L1,11L1,1L11,1L11,-1L1,-1L1,-11L-1,-11L-1,-1L-11,-1L-11,1L-1,1" fill="#49828b" transform="rotate(45)"></path>
+	</svg>
+</div>
+<div class="detail-content">
+	<div class="image-container">
+		<% if (url_type === 'youtube') { %>
+		<iframe 
+			class="video-frame" 
+			frameborder="0" 
+			width="100%" 
+			height="300" 
+			allowfullscreen>
+		</iframe>
+		<% } else if (image_filename) { %>
+		<img class="node-image <%= image_type %>" src="<%= image_filename %>" alt="">
+		<% } %>
+	</div>
+	<div class="detail-padded">
+		<div class="strong_parent">
+			<span>
+				<%= parent.get('connection').toUpperCase() %>
+			</span>
+		</div>
+	<% if (url) { %>
+		<h1><%= connection %></h1>
+		<div class="description"><%= description %></div>
+		<% if (url_type !== 'youtube') { %>
+		<a class="source" href="<%= url %>" target="_blank"><%= source %></a>
+		<div class="bylinedateline">
+			<% if (author.length > 1) { %>
+				BY <%= author.toUpperCase() %>
+			<% } %>
+			<% if (author.length > 1 && date) { %>
+				 – 
+			<% } %>
+			<% if (date) { %>
+				<%= date %>
+			<% } %>
+		</div>
+		<a href="<%= url %>" target="_blank" class="button green">READ THE FULL ARTICLE</a>
+		<% } %>
+	<% } else { %>
+		<h1 class="category-header">
+		    <span><%= connection %></span>
+		</h1>
+		<div class="description"><%= description %></div>
+		<div class="continue-exploring button green">CONTINUE EXPLORING</div>
+	<% } %>
+	<% if (url_type === 'youtube') { %>
+		<div class="continue-exploring button green">CONTINUE EXPLORING</div>
+	<% } %>
+	</div>
+</div>
+<div class="detail-bottom">
+	<div class="detail-related detail-padded">
+		<div class="label">RELATED CONNECTIONS</div>
+		<% _.forEach(related_connections, function(link, i){ %>
+			<% if (i < 3) { %>
+			<a href="#connection/<%= link.get('slug') %>"><%= link.get('connection') %></a><% if (i < related_connections.length - 1) { %>,<% } %>
+			<% } %>	
+		<% }) %>
+	</div>
+	<div class="detail-share">
+		<div class="heading">
+			<div class="icon-share"></div>
+			<svg class="icon-close" width="20" height="20" viewBox="-10,-10,20,20">
+				<path class="cross" d="M-1,1L-1,16L1,16L1,1L16,1L16,-1L1,-1L1,-16L-1,-16L-1,-1L-16,-1L-16,1L-1,1" fill="#49828b" transform="rotate(45)"></path>
+			</svg>
+			<div class="text">
+				SHARE THIS <br>
+				UNIQUE CONNECTION
+			</div>
+		</div>
+		<div class="share-image-container">
+			<img class="share-image" alt="">
+		</div>
+		<div class="icons">
+			<a class='share icon-facebook'
+			    data-slug="<%= slug %>" 
+			    data-shareable='true' 
+			    data-platform='facebook' 
+			    data-href='http://explore.stephenhawkingeffect.com/share/<%= slug %>'>
+	    	</a>
+	    	<a class='share icon-twitter twitter-share-button'
+			    data-slug="<%= slug %>" 
+			    data-text="I found a connection to Stephen Hawking. What's yours?"
+			    data-shareable='true' 
+			    data-platform='twitter' 
+			    data-href='http://explore.stephenhawkingeffect.com/share/<%= slug %>'
+			    data-url='http://explore.stephenhawkingeffect.com/share/<%= slug %>'
+			    >
+	    	</a>
+	    	<a class='share icon-pinterest'
+			    data-slug="<%= slug %>" 
+			    data-shareable='true' 
+			    data-platform='pinterest' 
+			    data-href='http://explore.stephenhawkingeffect.com/share/<%= slug %>'>
+	    	</a>
+	    </div>
+	</div>
+</div>
