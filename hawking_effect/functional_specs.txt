@@ -1,2 +1,0 @@
-root fades in
-category line draws out then dot scales from zero at location
