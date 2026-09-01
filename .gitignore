@@ -1,0 +1,15 @@
+hawking_effect/node_modules/
+hawking_effect/app/bower_components/
+hawking_effect/test/bower_components/
+hawking_effect/test/temp/
+hawking_effect/.sass-cache/
+hawking_effect/.tmp/
+hawking_effect/app/data.json
+hawking_effect/google_creds.txt
+hawking_effect/aws_creds.txt
+hawking_effect/.git/
+hawking_effect/dist/.git/
+
+.DS_Store
+*/.DS_Store
+.env
