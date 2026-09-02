@@ -44,7 +44,9 @@ require([
     scrollingView,
     ShareView,
     MainRouter,
-    helpers
+     helpers,
+    d3,
+     FastClick
 ) {
     FastClick.attach(document.body);
     new ShareView();
