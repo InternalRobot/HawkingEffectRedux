@@ -1,8 +1,45 @@
 $greentext: #4e7f88;
 $graytext: #6a6a6a;
 $red: #b24343;
-$tungsten: "Tungsten A", "Tungsten B";
+$tungsten: "Tungsten";
 $max: 750px;
+
+@font-face {
+    font-family: "Proxima Nova";
+    src: url("../fonts/ProximaNova/Proxima Nova Reg.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Proxima Nova";
+    src: url("../fonts/ProximaNova/Proxima Nova Light.otf") format("opentype");
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Proxima Nova";
+    src: url("../fonts/ProximaNova/Proxima Nova Sbold.otf") format("opentype");
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Tungsten";
+    src: url("../fonts/Tungsten/Tungsten-Light.otf") format("opentype");
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Tungsten";
+    src: url("../fonts/Tungsten/Tungsten-Book.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Tungsten";
+    src: url("../fonts/Tungsten/Tungsten-Medium.otf") format("opentype");
+    font-weight: 500;
+    font-style: normal;
+}
 @mixin lightondark() {
     text-rendering: geometricPrecision;
     opacity: 0.99;
@@ -24,21 +61,21 @@ $max: 750px;
         right: -$width - $offset;
     }
 }
-@import "_right";
-@import "_left";
-@import "_scrolling";
-@import "_loading";
-@import "_intro";
-@import "_question";
-@import "_icons";
-@import "_video";
+@import "right";
+@import "left";
+@import "scrolling";
+@import "loading";
+@import "intro";
+@import "question";
+@import "icons";
+@import "video";
 html, body {
     background: #121824;
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: "proxima-nova";
+    font-family: "Proxima Nova";
     overflow-x: hidden;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -150,7 +187,7 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 1;
 }
 .node-name {
-    font-family: "Tungsten A", "Tungsten B";
+    font-family: $tungsten;
     font-weight: 300;
     font-style: normal;
     font-size: 20px;

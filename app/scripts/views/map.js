@@ -216,9 +216,16 @@ define([
                 }
             }
 
+            var links = data.strong_links.concat(data.weak_links).map(function(link) {
+                return {
+                    source: _this.nodeViews[link.source],
+                    target: _this.nodeViews[link.target]
+                };
+            });
+
             var force = this.force = window.force = d3.layout.force()
                 .nodes(this.nodeViews)
-                .links(data.strong_links.concat(data.weak_links))
+                .links(links)
                 .size([1, 1])
                 .linkStrength(0.1)
                 .friction(0.9)
@@ -231,7 +238,7 @@ define([
                 .alpha(0.1)
 
             var $links = g.selectAll('line')
-                .data(data.strong_links.concat(data.weak_links))
+                .data(links)
                 .enter()
                 .append('line')
                 .attr('stroke', '#41354f')
@@ -258,7 +265,8 @@ define([
                     d.y = center[1] + (categoryRadius * Math.sin(d.model.angle));
                 } else {
                     $this.attr('class', 'topic');
-                    angle = d.model.category.angle + (Math.random() - 0.5) * Math.PI * 2 / nodes.categoryCount
+                    angle = d.model.category ? d.model.category.angle : 0;
+                    angle += (Math.random() - 0.5) * Math.PI * 2 / nodes.categoryCount;
                     d.x = center[0] + 800 * Math.cos(angle);
                     d.y = center[1] + 800 * Math.sin(angle);
                 }

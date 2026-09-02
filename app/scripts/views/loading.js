@@ -94,7 +94,11 @@ define([
             //     'margin-top': helpers.viewport.height / 2 - 330 / 2 + 'px'
             // }, 500);
             window.setTimeout(function() {
-                _this.parent.close();
+                if (_this.parent) {
+                    _this.parent.close();
+                } else {
+                    helpers.viewport.trigger('showmap');
+                }
             }, 500)
         },
 

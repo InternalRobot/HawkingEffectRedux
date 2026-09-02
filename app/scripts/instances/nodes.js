@@ -75,7 +75,7 @@ define([
         }
 
         if (d.get('url')) {
-            d.set('related_connections', parent.get('children'));
+            d.set('related_connections', parent ? parent.get('children') : []);
         } else {
             d.set('related_connections', d.get('children'));
         }
@@ -104,9 +104,9 @@ define([
 
             i++;
 
-            if (parent.get('type') === 'category') {
+            if (parent && parent.get('type') === 'category') {
                 d.category = parent;
-            } else if (i < 4) {
+            } else if (parent && i < 4) {
                 getCategory(parent)
             } else {
                 d.category = null;
