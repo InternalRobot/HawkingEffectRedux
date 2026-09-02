@@ -13,6 +13,29 @@ To run local server, run `grunt serve`
 
 To build minified for production, run `grunt build`
 
+### View Locally
+
+The app should be served over HTTP so RequireJS can load its scripts and local data:
+
+```bash
+# Using Python
+cd dist
+python -m http.server 8000
+
+# Using Node.js npx
+npx serve dist
+```
+
+Then open http://localhost:8000 in your browser.
+
+### Host on GitHub Pages
+
+The repository includes a GitHub Actions workflow that builds `dist` and deploys it to GitHub Pages whenever `main` changes. After pushing the workflow, enable Pages in the repository settings under **Pages > Build and deployment > Source: GitHub Actions**.
+
+The site will be available at:
+
+https://internalrobot.github.io/HawkingEffectRedux/
+
 ### Getting Data
 You can get started by copying the sample file:
 ````
