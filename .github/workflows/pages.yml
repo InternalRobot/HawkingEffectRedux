@@ -28,7 +28,7 @@ jobs:
           cache: npm
 
       - name: Install Node dependencies
-        run: npm install --legacy-peer-deps --no-audit --no-fund
+        run: npm install --legacy-peer-deps --ignore-scripts --no-audit --no-fund
 
       - name: Install Bower dependencies
         run: npx bower install --allow-root
